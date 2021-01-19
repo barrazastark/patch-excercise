@@ -6,14 +6,16 @@ const blockName = "table-wrapper";
 const Table = ({ data, headers, action, onClickAction, deletingItem }) => {
     return (
         <table className={blockName}>
-            <thead>
-                <tr>
-                    {headers.map(head => (
-                        <th key={head.field}>{head.display}</th>
-                    ))}
-                    {action ? <th /> : null}
-                </tr>
-            </thead>
+            {Boolean(data.length) && (
+                <thead>
+                    <tr>
+                        {headers.map(head => (
+                            <th key={head.field}>{head.display}</th>
+                        ))}
+                        {action ? <th /> : null}
+                    </tr>
+                </thead>
+            )}
             <tbody>
                 {data.map(_data => (
                     <tr key={_data.id}>

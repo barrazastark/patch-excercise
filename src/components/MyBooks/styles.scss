@@ -1,0 +1,39 @@
+.my-books-wrapper {
+  text-align: center;
+  margin: 90px auto;
+  width: 340px;
+  h1 span {
+    font-size: 16px;
+    color: tomato;
+    cursor: pointer;
+    border: 1px solid;
+    padding: 5px;
+    border-radius: 5px;
+  }
+
+  &__tabs {
+    display: flex;
+    justify-content: space-between;
+
+    span {
+      cursor: pointer;
+    }
+  }
+
+  &__MY_BOOKS {
+    span:first-of-type {
+      border-bottom: 1px solid tomato;
+    }
+  }
+
+  &__ALL_BOOKS {
+    span:last-of-type {
+      border-bottom: 1px solid tomato;
+    }
+  }
+
+  p {
+    color: yellowgreen;
+    font-weight: bold;
+  }
+}

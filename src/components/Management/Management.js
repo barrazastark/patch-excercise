@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useMemo } from "react";
 import { useHistory } from "react-router-dom";
 import { Button, Table, Modal } from "../../UIElements";
 
@@ -37,11 +37,21 @@ const Management = () => {
     });
     
     useEffect(() => {
+
+        let mounted = true;
+
         const getBooks = async () => {
             const books = await getRegisteredBooks();
-            setState(state => ({ ...state, isLoading: false, books }));
+            if(mounted) {
+                setState(state => ({ ...state, isLoading: false, books }));
+            }
         }
         getBooks();
+
+        return () => {
+            mounted = false;
+        }
+
     }, []);
 
     
@@ -107,7 +117,7 @@ const Management = () => {
     }
     
     const { books, isLoading, view, headers, deletingItem, showModal, newBook: { ISBN, title }, isAddingBook } = state;
-    const isBooks = view === 'books';
+    const isBooks = useMemo(() => view === 'books', [view]);
     const viewBooks = isBooks ? 'overdue' : 'registered';
     const listTitle = isBooks ? 'Registered' : 'Overdue';
     const action = isBooks ? 'Delete' : '';

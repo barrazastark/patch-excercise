@@ -17,6 +17,12 @@ const Login = () => {
         history.push('/management')
     }
 
+    const handleChangeUser = e => {
+        if(e.target.value) {
+            history.push('/library', { user: e.target.value });
+        }
+    }
+
     return (
         <div className={blockName}>
             <h1>Library APP</h1>
@@ -35,7 +41,7 @@ const Login = () => {
             {isUser && (
                 <label>
                     <span>Select user</span>
-                    <select>
+                    <select onChange={handleChangeUser}>
                         <option />
                         <option value="user1">user1</option>
                         <option value="user2">user2</option>
