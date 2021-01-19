@@ -1,0 +1,19 @@
+.mangement-wrapper {
+  text-align: center;
+  margin: 90px auto;
+  h1 span {
+    font-size: 16px;
+    color: tomato;
+    cursor: pointer;
+    border: 1px solid;
+    padding: 5px;
+    border-radius: 5px;
+  }
+  table {
+    margin: 20px auto 0 auto;
+  }
+
+  button:first-of-type {
+    margin-right: 10px;
+  }
+}

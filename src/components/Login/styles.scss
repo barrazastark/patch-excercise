@@ -1,0 +1,28 @@
+.login-wrapper {
+  display: flex;
+  flex-direction: column;
+  width: 240px;
+  margin: 90px auto;
+
+  &__button {
+    &:not(&--active):hover {
+      background-color: white;
+      border: 1px solid steelblue;
+      color: steelblue;
+    }
+
+    &:last-of-type {
+      margin: 10px 0;
+    }
+
+    &--active {
+      box-shadow: inset 0px 0px 10px 0px #191b4d;
+    }
+  }
+  label {
+    font-size: 16px;
+    span {
+      margin-right: 10px;
+    }
+  }
+}
